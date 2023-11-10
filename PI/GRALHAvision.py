@@ -85,7 +85,7 @@ def login(email, senha):
 
 def main():
     while True:
-        limpar_terminal()
+        limpar_tela()
         print("-"*15+"BEM VINDOS A GRALHAVISION"+15*"-")
         print("1. Login")
         print("2. Cadastro")
