@@ -181,7 +181,7 @@ arquivo_json = "ordens_de_servico.json"
 
 def carregar_ordens_de_servico():
     try:
-        with open(ordens_de_servico, 'r') as file:
+        with open(arquivo_json, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
         return []
@@ -189,7 +189,7 @@ def carregar_ordens_de_servico():
 
 def salvar_ordens_de_servico(ordens_de_servico):
     with open(arquivo_json, 'w') as file:
-        json.dump(ordens_de_servico, file)
+        json.dump(ordens_de_servico, file, indent=4)
 
 
 ordens_de_servico = carregar_ordens_de_servico()
