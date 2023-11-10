@@ -18,5 +18,15 @@
         "nome": "roman",
         "email": "tb@.com",
         "senha": "12345678"
+    },
+    {
+        "nome": "Lynnecker",
+        "email": "u@gmail.com",
+        "senha": "12345678"
+    },
+    {
+        "nome": "Vilma",
+        "email": "vilma@gmail.com",
+        "senha": "12345678"
     }
 ]
