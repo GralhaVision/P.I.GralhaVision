@@ -68,32 +68,57 @@ def excluir_cadastro(email, senha):
     print("Cadastro não encontrado.")
 
 
+def login(email, senha):
+    try:
+        with open('cadastros.json', 'r') as arquivo:
+            cadastros = json.load(arquivo)
+    except FileNotFoundError:
+        print("Nenhum cadastro encontrado.")
+        return False
+    for cadastro in cadastros:
+        if cadastro['email'] == email and cadastro['senha'] == senha:
+            print("Login bem-sucedido!")
+            return True
+    print("Email ou senha inválidos.")
+    return False
+
+
 def main():
     while True:
+        limpar_terminal()
         print("-"*15+"BEM VINDOS A GRALHAVISION"+15*"-")
-        print("1. Criar cadastro")
-        print("2. Editar cadastro")
-        print("3. Excluir cadastro")
-        print("4. Sair")
+        print("1. Login")
+        print("2. Cadastro")
+        print("3. Sair")
         print("-"*56)
-        opcao = input("Escolha uma opção: ")
-
-        if opcao == '1':
-            criar_cadastro()
-        elif opcao == '2':
+        opcao_principal = input("Escolha uma opção: ")
+        if opcao_principal == '1':
             email = input("Informe o email: ")
             senha = input("Informe a senha: ")
-            editar_cadastro(email, senha)
-        elif opcao == '3':
-            email = input("Informe o email: ")
-            senha = input("Informe a senha: ")
-            excluir_cadastro(email, senha)
-        elif opcao == '4':
+            login(email, senha)
+        elif opcao_principal == '2':
+            print("1. Criar cadastro")
+            print("2. Editar cadastro")
+            print("3. Excluir cadastro")
+            print("-"*56)
+            opcao_cadastro = input("Escolha uma opção: ")
+            if opcao_cadastro == '1':
+                criar_cadastro()
+            elif opcao_cadastro == '2':
+                email = input("Informe o email: ")
+                senha = input("Informe a senha: ")
+                editar_cadastro(email, senha)
+            elif opcao_cadastro == '3':
+                email = input("Informe o email: ")
+                senha = input("Informe a senha: ")
+                excluir_cadastro(email, senha)
+            else:
+                print("Opção inválida. Tente novamente.")
+        elif opcao_principal == '3':
             break
         else:
             print("Opção inválida. Tente novamente.")
         print("-"*56)
-        limpar_tela()
 
 
 main()
