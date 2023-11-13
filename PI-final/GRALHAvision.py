@@ -469,7 +469,7 @@ def enviar_email():
     msg = email.message.Message()
     msg['Subject'] = "SUPORTE: GRALHA VISION"
     msg['From'] = 'suporte.gralha@gmail.com'
-    msg['To'] = 'visiongralha@gmail.com', 'suporte.gralha@gmail.com'
+    msg['To'] = 'suporte.gralha@gmail.com'
     password = 'tsxkpujjzchdnszh'
     msg.add_header('Content-Type', 'text/html')
     msg.set_payload(corpo_email)
